@@ -52,12 +52,13 @@ public class BootstrapData implements CommandLineRunner {
         // add relations and update 
         ericSaved.getBooks().add(dddSaved);
         rodSaved.getBooks().add(noEJBSaved);
-        addisonSaved.getBooks().add(dddSaved);
-        wileySaved.getBooks().add(noEJBSaved);
+        dddSaved.setPublisher(addisonSaved);
+        noEJBSaved.setPublisher(wileySaved);
+
         authorRepository.save(ericSaved);
         authorRepository.save(rodSaved);
-        publisherRepository.save(addisonSaved);
-        publisherRepository.save(wileySaved);
+        bookRepository.save(dddSaved);
+        bookRepository.save(noEJBSaved);
 
         // report
         System.out.println("Bootstrap completed");
