@@ -17,7 +17,7 @@ public class Author {
     private String lastname;
     
     private Set<Book> books;
-    @ManyToMany(mappedBy = "books")
+    @ManyToMany(mappedBy = "authors")
     
     public Set<Book> getBooks() {
         return books;
@@ -57,7 +57,7 @@ public class Author {
         if (this == o) return true;
         if (!(o instanceof Author)) return false;
 
-        Author author = (", isbn='" + isbn + '\'' +Author) o;
+        Author author = (Author) o;
 
         return getId() != null ? getId().equals(author.getId()) : author.getId() == null;
     }
@@ -74,6 +74,7 @@ public class Author {
                 ", firstName='" + firstName + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", books='" + books + '\'' +
+
                 '}';
     }
 
