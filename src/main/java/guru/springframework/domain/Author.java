@@ -1,9 +1,12 @@
 package guru.springframework.domain;
 
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Author {
@@ -12,6 +15,17 @@ public class Author {
     private Long id;
     private String firstName;
     private String lastname;
+    
+    private Set<Author> authors;
+    @ManyToMany(mappedBy = "books")
+    
+    public Set<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setBooks(Set<Author> authors) {
+        this.authors = authors;
+    }  
 
     public Long getId() {
         return id;
