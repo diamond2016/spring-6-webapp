@@ -23,8 +23,7 @@ public class Publisher {
     private String state;
     private String zipCode;
 
-    @OneToMany
-    @JoinTable(name="publisher_book", joinColumns = @JoinColumn(name="publisher_id"))
+    @OneToMany(mappedBy = "publisher")
     private Set<Book> books = new HashSet<>();
 
     public Long getId() {
