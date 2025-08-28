@@ -16,15 +16,15 @@ public class Author {
     private String firstName;
     private String lastname;
     
-    private Set<Author> authors;
+    private Set<Book> books;
     @ManyToMany(mappedBy = "books")
     
-    public Set<Author> getAuthors() {
-        return authors;
+    public Set<Book> getBooks() {
+        return books;
     }
 
-    public void setBooks(Set<Author> authors) {
-        this.authors = authors;
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }  
 
     public Long getId() {
@@ -47,7 +47,34 @@ public class Author {
         return lastname;
     }
 
+
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Author)) return false;
+
+        Author author = (", isbn='" + isbn + '\'' +Author) o;
+
+        return getId() != null ? getId().equals(author.getId()) : author.getId() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return getId() != null ? getId().hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", books='" + books + '\'' +
+                '}';
+    }
+
 }
