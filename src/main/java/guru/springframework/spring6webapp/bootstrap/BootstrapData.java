@@ -5,10 +5,10 @@ import java.util.Set;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import guru.springframework.domain.Author;
-import guru.springframework.domain.Book;
-import guru.springframework.repositories.AuthorRepository;
-import guru.springframework.repositories.BookRepository;
+import guru.springframework.spring6webapp.domain.Author;
+import guru.springframework.spring6webapp.domain.Book;
+import guru.springframework.spring6webapp.repositories.AuthorRepository;
+import guru.springframework.spring6webapp.repositories.BookRepository;
 
 @Component
 public class BootstrapData implements CommandLineRunner {
