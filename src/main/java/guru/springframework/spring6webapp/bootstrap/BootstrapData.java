@@ -1,6 +1,4 @@
 package guru.springframework.spring6webapp.bootstrap;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -37,13 +35,15 @@ public class BootstrapData implements CommandLineRunner {
         noEJB.setIsbn("545666");
 
         Author ericSaved = authorRepository.save(eric);
-        Book dddSaved = bookRepository.save(ddd);
         Author rodSaved = authorRepository.save(rod);
+        Book dddSaved = bookRepository.save(ddd);
         Book noEJBSaved = bookRepository.save(noEJB);
 ;
-        // add relations
+        // add relations and update 
         ericSaved.getBooks().add(dddSaved);
         rodSaved.getBooks().add(noEJBSaved);
+        authorRepository.save(ericSaved);
+        authorRepository.save(rodSaved);
 
         // report
         System.out.println("Bootstrap completed");
