@@ -55,8 +55,13 @@ public class BootstrapData implements CommandLineRunner {
         Publisher wileySaved = publisherRepository.save(wiley);
 
         // entities relations and update
+        // author - book
         ericSaved.getBooks().add(dddSaved);
         rodSaved.getBooks().add(noEJBSaved);
+        dddSaved.getAuthors().add(ericSaved);
+        noEJBSaved.getAuthors().add(rodSaved);
+        
+        // publisher - book
         dddSaved.setPublisher(addisonSaved);
         noEJBSaved.setPublisher(wileySaved);
 
