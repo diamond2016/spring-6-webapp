@@ -24,12 +24,14 @@ public class BootstrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        // entities in memory
         Author eric = new Author();
         eric.setFirstName("Eric");
         eric.setLastname("Evans");
         Author rod = new Author();
         rod.setFirstName("Rod");
         rod.setLastname("Johnson");
+
         Publisher addison = new Publisher();
         addison.setPublisherName("Addison-Wesley Professional");
         Publisher wiley = new Publisher();
@@ -42,23 +44,27 @@ public class BootstrapData implements CommandLineRunner {
         noEJB.setTitle("J2EE Development without EJB");
         noEJB.setIsbn("545666");
 
+        // entities saved
         Author ericSaved = authorRepository.save(eric);
         Author rodSaved = authorRepository.save(rod);
+
         Book dddSaved = bookRepository.save(ddd);
         Book noEJBSaved = bookRepository.save(noEJB);
+        
         Publisher addisonSaved = publisherRepository.save(addison);
         Publisher wileySaved = publisherRepository.save(wiley);
 
-        // add relations and update 
+        // entities relations and update
         ericSaved.getBooks().add(dddSaved);
         rodSaved.getBooks().add(noEJBSaved);
-        dddSaved.setPublisher(addisonSaved);
-        noEJBSaved.setPublisher(wileySaved);
+
+        addisonSaved.getBooks().add(ddd);
+        wileySaved.getBooks().add(noEJB);
 
         authorRepository.save(ericSaved);
         authorRepository.save(rodSaved);
-        bookRepository.save(dddSaved);
-        bookRepository.save(noEJBSaved);
+        publisherRepository.save(addisonSaved);
+        publisherRepository.save(wileySaved);
 
         // report
         System.out.println("Bootstrap completed");
