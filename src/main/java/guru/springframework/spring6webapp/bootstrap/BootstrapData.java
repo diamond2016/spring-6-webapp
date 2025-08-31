@@ -35,7 +35,7 @@ public class BootstrapData implements CommandLineRunner {
         Publisher addison = new Publisher();
         addison.setPublisherName("Addison-Wesley Professional");
         Publisher wiley = new Publisher();
-        addison.setPublisherName("Wiley Publishing");   
+        wiley.setPublisherName("Wiley Publishing");   
 
         Book ddd = new Book();
         ddd.setTitle("Domain Driven Design");
