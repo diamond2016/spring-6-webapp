@@ -27,10 +27,10 @@ public class BootstrapData implements CommandLineRunner {
         // entities in memory
         Author eric = new Author();
         eric.setFirstName("Eric");
-        eric.setLastname("Evans");
+        eric.setLastName("Evans");
         Author rod = new Author();
         rod.setFirstName("Rod");
-        rod.setLastname("Johnson");
+        rod.setLastName("Johnson");
 
         Publisher addison = new Publisher();
         addison.setPublisherName("Addison-Wesley Professional");
